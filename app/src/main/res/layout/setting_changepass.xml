@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/background_color">
+
+    <!-- Mật khẩu hiện tại -->
+    <ImageView
+        android:id="@+id/btn_back"
+        android:layout_width="38dp"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_arrowback" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="48dp" />
+
+    <TextView
+        android:id="@+id/tvCurrentPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/CurrentPassword"
+        android:textSize="16sp"
+        android:textColor="@color/text_color"
+        android:layout_marginBottom="8dp" />
+
+    <EditText
+        android:id="@+id/etCurrentPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:hint="@string/EnterCurrentPasswor"
+        android:padding="12dp"
+        android:background="@drawable/custom_edittext_background"
+        android:textColor="@color/text_color"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Mật khẩu mới -->
+    <TextView
+        android:id="@+id/tvNewPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/NewPassword"
+        android:textSize="16sp"
+        android:textColor="@color/text_color"
+        android:layout_marginBottom="8dp" />
+
+    <EditText
+        android:id="@+id/etNewPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:hint="@string/EnterNewPassword"
+        android:padding="12dp"
+        android:background="@drawable/custom_edittext_background"
+        android:textColor="@color/text_color"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Xác nhận mật khẩu mới -->
+    <TextView
+        android:id="@+id/tvConfirmNewPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ConfirmNewPassword"
+        android:textSize="16sp"
+        android:textColor="@color/text_color"
+        android:layout_marginBottom="8dp" />
+
+    <EditText
+        android:id="@+id/etConfirmNewPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:hint="@string/ConfirmNewPassword"
+        android:padding="12dp"
+        android:background="@drawable/custom_edittext_background"
+        android:textColor="@color/text_color"
+        android:layout_marginBottom="24dp" />
+
+    <!-- Nút Đổi mật khẩu -->
+    <Button
+        android:id="@+id/btnChangePassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/ChangePassword"
+        android:textColor="@android:color/white"
+        android:background="@drawable/custom_button_background"
+        android:padding="12dp"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp" />
+
+</LinearLayout>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#F9F9F9"
+    tools:context=".Activity.admin.nhacungcap.AdminNhacungcapDetailActivity">
+
+    <!-- Hình ảnh nhà cung cấp -->
+    <ImageButton
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/back"
+        android:src="@drawable/ic_back" />
+
+    <!-- Tên nhà cung cấp -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputSupplierName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:hintTextColor="@color/black"
+        app:boxStrokeColor="@color/primary_color"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextSupplierName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/SupplierName"
+            android:textColor="@color/black"
+            android:singleLine="true"
+            android:ellipsize="end"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Địa chỉ nhà cung cấp -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputSupplierAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:hintTextColor="@color/black"
+        app:boxStrokeColor="@color/primary_color"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextSupplierAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/SupplierAddress"
+            android:textColor="@color/black"
+            android:singleLine="true"
+            android:ellipsize="end" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Email nhà cung cấp -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputSupplierEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:hintTextColor="@color/black"
+        app:boxStrokeColor="@color/primary_color"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextSupplierEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/SupplierEmail"
+            android:textColor="@color/black"
+            android:singleLine="true"
+            android:ellipsize="end" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Số điện thoại nhà cung cấp -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputSupplierPhone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:hintTextColor="@color/black"
+        app:boxStrokeColor="@color/primary_color"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextSupplierPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/PhoneNumber"
+            android:textColor="@color/black"
+            android:singleLine="true"
+            android:ellipsize="end" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Nút cập nhật -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_update_supplier"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/Update"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rounded_background" />
+
+    <!-- Nút xóa -->
+
+</LinearLayout>

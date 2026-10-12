@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="grey">#FF808080</color>
+    <color name="blue">#FF0000FF</color>
+    <color name="red">#FFFF0000</color>
+    <color name="green">#FF00FF00</color>
+    <color name="yellow">#FFFFEB3B</color>
+    <color name="orange">#FFFF7F50</color>
+    <color name="purple">#FF800080</color>
+    <color name="pink">#FFFFC0CB</color>
+    <color name="brown">#FF8B4513</color>
+    <color name="teal">#FF008080</color>
+    <color name="cyan">#FF00FFFF</color>
+    <color name="lime">#FF00FF00</color>
+    <color name="indigo">#FF4B0082</color>
+    <color name="violet">#FFEE82EE</color>
+    <color name="maroon">#FF800000</color>
+    <color name="olive">#FF808000</color>
+    <color name="silver">#FFC0C0C0</color>
+    <color name="gold">#FFFFD700</color>
+    <color name="aqua">#FF00FFFF</color>
+    <color name="fuchsia">#FFFF00FF</color>
+    <color name="navy">#FF000080</color>
+    <color name="gray">#FF808080</color>
+    <color name="background_color">#F0F0F0</color>
+    <color name="text_color">#333333</color>
+    <color name="primary_color">#FF5722</color>
+    <color name="button_pressed_color">#E64A19</color>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+
+    <!-- Màu chính cho văn bản -->
+    <color name="primary_text_color">#212121</color>
+    <!-- Thêm các màu khác nếu cần -->
+    <color name="button_color">#3F51B5</color>
+    <color name="hint_color">#757575</color>
+
+
+    <color name="lightgray">#BCBABA</color>
+    <color name="secondary_text_color">#666666</color>
+    <color name="status_text_color">#FF5722</color>
+    <color name="error">#D32F2F</color>
+
+</resources>

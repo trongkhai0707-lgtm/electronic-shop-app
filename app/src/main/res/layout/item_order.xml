@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@drawable/item_background"> <!-- Thêm background nếu cần -->
+
+    <!-- Hiển thị số thứ tự đơn hàng -->
+    <TextView
+        android:id="@+id/tv_order_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Order"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/black" />
+
+    <!-- Hiển thị tổng tiền đơn hàng -->
+    <TextView
+        android:id="@+id/tv_total_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/TotalAmount"
+        android:textSize="16sp"
+        android:textColor="@color/black" />
+
+    <!-- Hiển thị ngày đặt hàng -->
+    <TextView
+        android:id="@+id/tv_order_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/OrderDate"
+        android:textSize="16sp"
+        android:textColor="@color/black" />
+
+    <!-- Hiển thị trạng thái đơn hàng -->
+    <TextView
+        android:id="@+id/tv_order_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/status"
+        android:textSize="16sp"
+        android:textColor="@color/brown" />
+
+</LinearLayout>

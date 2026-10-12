@@ -1,0 +1,181 @@
+<resources>
+    <string name="app_name">Online Shop</string>
+    <string name="logo">Logo</string>
+    <string name="username">Tên tài khoản</string>
+    <string name="password">Mật khẩu</string>
+    <string name="register">Đăng ký</string>
+    <string name="login">Đăng nhập</string>
+    <string name="email">Email</string>
+    <string name="cPass">Comfim password</string>
+    <string name="homepage">Trang chủ</string>
+    <string name="phone">Điện thoại</string>
+    <string name="laptop">Laptop</string>
+    <string name="back">Thoát</string>
+    <string name="computer">Máy tính</string>
+    <string name="order">Đơn hàng: </string>
+    <string name="account">Tài khoản</string>
+    <string name="setting">Cài đặt</string>
+    <string name="nav_open">Open navigation drawer</string>
+    <string name="nav_close">Close navigation drawer</string>
+    <string name="show_pass">Show</string>
+    <string name="title_activity_settings">Cài đặt</string>
+
+    <string name="customer_name">Tên khách hàng:</string>
+    <string name="phone_number">Số điện thoại:</string>
+    <string name="address">Địa chỉ:</string>
+    <string name="purchased_product">Sản phẩm mua:</string>
+    <string name="total_amount">Thành tiền:</string>
+    <string name="purchase_date">Ngày mua:</string>
+    <string name="order_details">Chi tiết đơn hàng</string>
+    <string name="checkout">Thanh toán</string>
+    <string name="print_order">In đơn hàng</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="notification">Thông báo</string>
+    <string name="accountsecurity"><![CDATA[Tài khoản & bảo mật]]></string>
+    <string name="language">Ngôn ngữ</string>
+    <string name="support">Trung tâm hỗ trợ</string>
+    <string name="community">Tiêu chuẩn cộng đồng</string>
+    <string name="clause">Điều khoản</string>
+    <string name="introduce">Giới thiệu</string>
+    <string name="logout">Đăng xuất</string>
+    <string name="notifiApp">Thông báo ứng dụng</string>
+    <string name="TBmail">Thông báo về email</string>
+    <string name="pay">Thanh toán</string>
+    <string name="product_image">ảnh sản phẩm\n</string>
+    <string name="ChangePass">Đổi mật khẩu</string>
+    <string name="profile">Hồ sơ cá nhân</string>
+    <string name="notUpdate">Chưa cập nhật</string>
+    <string name="cancel">Hủy</string>
+    <string name="save">Lưu</string>
+    <string name="description">Mô tả</string>
+    <string name="send">Gửi</string>
+    <string name="select_image">Chọn ảnh</string>
+    <string name="delAcc">Xóa tài khoản</string>
+    <string name="forgotPass">Quên mật khẩu?</string>
+    <string name="rememberMe">Nhớ đăng nhập</string>
+    <string name="search">Tìm kiếm ...</string>
+    <string name="newProducts">Sản phẩm mới</string>
+    <string name="ListPC">Danh sách sản phẩm máy tính</string>
+    <string name="detail">Chi tiết</string>
+    <string name="cart">Giỏ hàng</string>
+    <string name="StatisticReport">Thống kê</string>
+    <string name="date">Ngày</string>
+    <string name="revenue">Danh thu</string>
+    <string name="nameProduct">Tên</string>
+    <string name="codeProduct">MaSP</string>
+    <string name="price">Giá</string>
+    <string name="quantity">Số lượng</string>
+    <string name="supplier">Nhà cung cấp</string>
+    <string name="codeOrder">MaDH</string>
+    <string name="nameCustomer">Tên KH</string>
+    <string name="dateOrder">Ngày đặt hàng</string>
+    <string name="status">Trạng thái</string>
+    <string name="Back">Back</string>
+    <string name="Username">Username</string>
+    <string name="Address">Địa chỉ</string>
+    <string name="Email">Email</string>
+    <string name="Role">Vai trò</string>
+    <string name="PhoneNumber">Số điện thoại</string>
+    <string name="UID">UID</string>
+    <string name="Edit">Sửa</string>
+    <string name="Delete">Xóa</string>
+    <string name="CustomerName">Tên khách hàng</string>
+    <string name="OrderDate">Ngày đặt hàng: </string>
+    <string name="TotalAmount">Tổng tiền: </string>
+    <string name="AddOrder">Thêm đơn hàng</string>
+    <string name="SupplierCode">Mã nhà cung cấp</string>
+    <string name="SupplierName">Tên nhà cung cấp</string>
+    <string name="AddSupplier">Thêm nhà cung cấp</string>
+    <string name="AddProducts">Thêm Sản Phẩm</string>
+    <string name="AddNewProducts">Thêm Sản Phẩm Mới</string>
+    <string name="ProductName">Tên sản phẩm</string>
+    <string name="ProductCode">Mã sản phẩm</string>
+    <string name="ProductPrice">Giá sản phẩm</string>
+    <string name="ProductImageURL">URL ảnh sản phẩm</string>
+    <string name="QuantityInStock">Số lượng tồn kho</string>
+    <string name="ProductDescription">Mô tả sản phẩm</string>
+    <string name="Supplier">Nhà cung cấp</string>
+    <string name="AddAccount">Thêm Tài Khoản</string>
+    <string name="AddNewAccount">Thêm Tài Khoản Mới</string>
+    <string name="AccountName">Tên tài khoản</string>
+    <string name="OrderCode">Mã đơn hàng</string>
+    <string name="OrderName">Tên khách hàng</string>
+    <string name="Update">Cập nhật</string>
+    <string name="SearchForOrders">Tìm kiếm đơn hàng...</string>
+    <string name="SearchForSuppliers">Tìm kiếm nhà cung cấp...</string>
+    <string name="SupplierAddress">Địa chỉ nhà cung cấp</string>
+    <string name="SupplierEmail">Email nhà cung cấp</string>
+    <string name="ProductSearch">Tìm kiếm sản phẩm...</string>
+    <string name="AccountSearch">Tìm kiếm tài khoản ...</string>
+    <string name="Order">Đơn hàng</string>
+    <string name="Buy">Mua</string>
+    <string name="CurrentPassword">Mật khẩu hiện tại</string>
+    <string name="EnterCurrentPasswor">Nhập mật khẩu hiện tại</string>
+    <string name="NewPassword">Mật khẩu mới</string>
+    <string name="EnterNewPassword">Nhập mật khẩu mới</string>
+    <string name="ConfirmNewPassword">Xác nhận mật khẩu mới</string>
+    <string name="ChangePassword">Đổi mật khẩu</string>
+    <string name="VI">VI</string>
+    <string name="EN">VN</string>
+    <string name="Admin">Admin</string>
+    <string name="AccountManagement">Quản lý tài khoản</string>
+    <string name="SupplierManagement">Quản lý nhà cung cấp</string>
+    <string name="ProductManagement">Quản lý sản phẩm</string>
+    <string name="OrderManagement">Quản lý đơn hàng</string>
+    <string name="ReportStatistics">Thống kê báo cáo</string>
+    <string name="LogOut">Đăng xuất</string>
+    <string name="ProductList">Danh sách sản phẩm:\n\n</string>
+    <string name="Describe">Mô tả</string>
+    <string name="InventoryQuantity">Số lượng tồn kho</string>
+    <string name="ProductType">Loại sản phẩm</string>
+    <string name="AddToCart">Thêm vào giỏ hàng</string>
+    <string name="BuyNow">Mua ngay</string>
+    <string name="Client">Khách hàng:</string>
+    <string name="ProductDetail">Chi tiết sản phẩm</string>
+    <string name="Name">Name:</string>
+    <string name="Decrease">-</string>
+    <string name="Increase">+</string>
+    <string name="ListOfLaptopProducts">Danh sách sản phẩm laptop</string>
+    <string name="ListOfPhoneProducts">Danh sách sản phẩm điện thoại</string>
+    <string name="Price">Giá:</string>
+    <string name="Quantity">Số Lượng:</string>
+    <string name="CommunityStandards">Tiêu chuẩn cộng đồng</string>
+    <string name="AgreeToTheTerms">Tôi đồng ý với các điều khoản</string>
+    <string name="Continue">Tiếp tục</string>
+
+    <string-array name="role_options">
+        <item>user</item>
+        <item>admin</item>
+    </string-array>
+    <!-- Product type options -->
+    <string-array name="product_type_options">
+        <item>Điện thoại</item>
+        <item>Laptop</item>
+        <item>Máy tính</item>
+    </string-array>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="fgPass">Quên mật khẩu</string>
+    <string name="lang_en">Tiếng Anh</string>
+    <string name="lang_vn">Tiếng Việt</string>
+    <string name="cancel_order">Huỷ đơn hàng</string>
+    <string name="browse_orders">Duyệt đơn hàng</string>
+    <string name="Block">"Khoá "</string>
+    <string name="Revenue_statistics">Thống kê doanh thu</string>
+
+
+</resources>

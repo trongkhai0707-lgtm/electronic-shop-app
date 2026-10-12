@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+        <item android:id="@+id/nav_homepage"
+            android:title="@string/homepage"
+            android:icon="@drawable/ic_home" />
+
+        <item android:id="@+id/nav_phone"
+            android:title="@string/phone"
+            android:icon="@drawable/ic_smartphone" />
+
+        <item android:id="@+id/nav_laptop"
+            android:title="@string/laptop"
+            android:icon="@drawable/ic_laptop" />
+
+        <item android:id="@+id/nav_pc"
+            android:title="@string/computer"
+            android:icon="@drawable/ic_computer" />
+
+    </group>
+
+    <item android:title="Other">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item android:id="@+id/nav_order"
+                    android:title="@string/order"
+                    android:icon="@drawable/ic_orders" />
+
+
+                <item android:id="@+id/nav_setting"
+                    android:title="@string/setting"
+                    android:icon="@drawable/ic_settings" />
+            </group>
+        </menu>
+    </item>
+</menu>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Tiêu đề và Logo -->
+
+    <!-- Các nút chức năng -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Tiêu đề Trang chủ -->
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:text="@string/Admin"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <!-- Logo ở góc trên bên phải -->
+        <ImageView
+            android:id="@+id/imgLogo"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/logo" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btnQuanLyTaiKhoan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/rounded_button_background"
+        android:text="@string/AccountManagement"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/btnQuanLyNhaCungCap"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rounded_button_background"
+        android:text="@string/SupplierManagement"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/btnQuanLySanPham"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rounded_button_background"
+        android:text="@string/ProductManagement"
+        android:textSize="18sp" />
+
+
+
+    <Button
+        android:id="@+id/btnQuanLyDonHang"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rounded_button_background"
+        android:text="@string/OrderManagement"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/btnThongKeBaoCao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rounded_button_background"
+        android:text="@string/Revenue_statistics"
+        android:textSize="18sp" />
+
+
+    <Button
+        android:id="@+id/btnDangXuat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/rounded_button_background"
+        android:text="@string/LogOut"
+        android:textSize="18sp" />
+
+</LinearLayout>

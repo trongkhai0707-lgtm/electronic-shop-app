@@ -1,0 +1,33 @@
+Giới Thiệu Ứng Dụng
+    Chào mừng đến với [Tên Ứng Dụng] – Nơi Mua Sắm Công Nghệ Dễ Dàng và Tiện Lợi!
+
+    [Tên Ứng Dụng] là ứng dụng hàng đầu giúp bạn dễ dàng tìm kiếm và mua sắm các sản phẩm công nghệ chất lượng cao từ các thương hiệu nổi tiếng. Chúng tôi cung cấp một loạt các sản phẩm bao gồm điện thoại, laptop và máy tính bảng với giá cả hợp lý và dịch vụ khách hàng tận tâm.
+
+Các Tính Năng Nổi Bật:
+  - Danh Mục Sản Phẩm Đa Dạng: Khám phá bộ sưu tập đa dạng của chúng tôi từ các điện thoại thông minh mới nhất, laptop hiệu suất cao, đến các máy tính bảng tiện dụng.
+
+  - Tìm Kiếm và Lọc Thông Minh: Dễ dàng tìm kiếm sản phẩm theo thương hiệu, giá cả, và các tính năng với công cụ lọc thông minh của chúng tôi.
+
+  - Thông Tin Chi Tiết và Đánh Giá: Xem các thông tin chi tiết về sản phẩm, so sánh các lựa chọn và đọc đánh giá từ người dùng khác để đưa ra quyết định mua sắm tốt nhất.
+
+  - Ưu Đãi và Khuyến Mãi Đặc Biệt: Theo dõi các chương trình khuyến mãi và ưu đãi đặc biệt để nhận những món hời tốt nhất.
+
+  - Thanh Toán An Toàn và Giao Hàng Nhanh Chóng: Thực hiện thanh toán an toàn qua nhiều phương thức và nhận hàng nhanh chóng với dịch vụ giao hàng tận nơi.
+
+Đội ngũ đứng sau [Tên Ứng Dụng]
+[Tên Ứng Dụng] được phát triển bởi một đội ngũ gồm:
+
+        Đào Đức Hải - 22130066 (22130066@st.hcmuaf.edu.vn)
+
+        Phạm Bích Ngọc – 22130187 (22130187@st.hcmuaf.edu.vn)
+
+        Lưu Huỳnh Phúc – 21130478 (21130478@st.hcmuaf.edu.vn)
+
+        Nguyễn Minh Hiệp – 21130351 (21130351@st.hcmuaf.edu.vn)
+
+        Trần Thị Thanh Ngân(Nhóm Trưởng) – 22130181 (22130181@st.hcmuaf.edu.vn)
+
+Liên Hệ Với Chúng Tôi:
+    Nếu bạn có bất kỳ câu hỏi nào hoặc cần hỗ trợ, đừng ngần ngại liên hệ với đội ngũ hỗ trợ khách hàng của chúng tôi qua email: support@[tenapp].com hoặc qua số điện thoại: [Số điện thoại hỗ trợ].
+
+Chúng tôi hy vọng bạn có những trải nghiệm mua sắm tuyệt vời với [Tên Ứng Dụng]!

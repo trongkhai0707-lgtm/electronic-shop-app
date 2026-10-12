@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".Activity.admin.donhang.AdminDonHangDetailActivity">
+
+    <!-- Nút quay lại -->
+    <ImageButton
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/back"
+        android:src="@drawable/ic_back" />
+
+    <!-- Mã đơn hàng -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputOrderCode"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/btnBack"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:hintTextColor="@color/black"
+        app:boxStrokeColor="@color/primary_color"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextOrderCode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/OrderCode"
+            android:textColor="@color/black"
+            android:singleLine="true"
+            android:ellipsize="end" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Tên khách hàng -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputCustomerName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/textInputOrderCode"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:hintTextColor="@color/black"
+        app:boxStrokeColor="@color/primary_color"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextCustomerName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/OrderName"
+            android:textColor="@color/black"
+            android:singleLine="true"
+            android:ellipsize="end" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Địa chỉ -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputAddress"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/textInputCustomerName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:hintTextColor="@color/black"
+        app:boxStrokeColor="@color/primary_color"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/Address"
+            android:textColor="@color/black"
+            android:singleLine="true"
+            android:ellipsize="end" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Số điện thoại -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputPhone"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/textInputAddress"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:hintTextColor="@color/black"
+        app:boxStrokeColor="@color/primary_color"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/PhoneNumber"
+            android:textColor="@color/black"
+            android:singleLine="true"
+            android:ellipsize="end" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Ngày đặt hàng -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputOrderDate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/textInputPhone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:hintTextColor="@color/black"
+        app:boxStrokeColor="@color/primary_color"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextOrderDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/OrderDate"
+            android:textColor="@color/black"
+            android:singleLine="true"
+            android:ellipsize="end" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Trạng thái -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputOrderStatus"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/textInputOrderDate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:hintTextColor="@color/black"
+        app:boxStrokeColor="@color/primary_color"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextOrderStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/status"
+            android:textColor="@color/black"
+            android:singleLine="true"
+            android:ellipsize="end" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Tổng tiền -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputTotal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/textInputOrderStatus"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:hintTextColor="@color/black"
+        app:boxStrokeColor="@color/primary_color"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextTotal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/TotalAmount"
+            android:textColor="@color/black"
+            android:singleLine="true"
+            android:ellipsize="end" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Nút cập nhật -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_update_order"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/Update"
+        app:layout_constraintTop_toBottomOf="@id/textInputTotal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp" />
+
+    <!-- Nút xóa -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_cancel_order"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/cancel_order"
+        app:layout_constraintTop_toBottomOf="@id/btn_update_order"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_approve_order"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/browse_orders"
+        app:layout_constraintTop_toBottomOf="@id/btn_cancel_order"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

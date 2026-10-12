@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Background color of the slider -->
+    <solid android:color="#E0E0E0" />
+
+    <!-- Optional: Add a border to the slider -->
+    <stroke
+        android:width="2dp"
+        android:color="#B0B0B0" />
+
+    <!-- Optional: Add rounded corners -->
+    <corners android:radius="10dp" />
+
+    <!-- Optional: Add padding inside the slider -->
+    <padding
+        android:left="8dp"
+        android:right="8dp"
+        android:top="8dp"
+        android:bottom="8dp" />
+
+</shape>

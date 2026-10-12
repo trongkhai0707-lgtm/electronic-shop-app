@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="8dp"
+    android:elevation="6dp"
+    app:cardCornerRadius="12dp"
+    app:cardBackgroundColor="#E8DFDF"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <!-- Tên nhà cung cấp -->
+        <TextView
+            android:id="@+id/tv_supplier_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/SupplierName"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:paddingBottom="8dp" />
+
+        <!-- Số điện thoại nhà cung cấp -->
+        <TextView
+            android:id="@+id/tv_supplier_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/PhoneNumber"
+            android:textSize="16sp"
+            android:textColor="@color/gray"
+            android:paddingBottom="6dp" />
+
+        <!-- Email nhà cung cấp -->
+        <TextView
+            android:id="@+id/tv_supplier_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Email"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:paddingBottom="4dp" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

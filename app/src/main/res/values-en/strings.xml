@@ -1,0 +1,175 @@
+<resources>
+    <string name="app_name">Online Shop</string>
+    <string name="logo">Logo</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="register">Register</string>
+    <string name="login">Login</string>
+    <string name="email">Email</string>
+    <string name="cPass">Confirm password</string>
+    <string name="homepage">Homepage</string>
+    <string name="phone">Phone</string>
+    <string name="laptop">Laptop</string>
+    <string name="back">Back</string>
+    <string name="computer">Computer</string>
+    <string name="order">Order</string>
+    <string name="account">Account</string>
+    <string name="setting">Settings</string>
+    <string name="nav_open">Open navigation drawer</string>
+    <string name="nav_close">Close navigation drawer</string>
+    <string name="show_pass">Show</string>
+    <string name="title_activity_settings">Settings</string>
+
+    <string name="customer_name">Customer Name:</string>
+    <string name="phone_number">Phone Number:</string>
+    <string name="address">Address:</string>
+    <string name="purchased_product">Purchased Product:</string>
+    <string name="total_amount">Total Amount:</string>
+    <string name="purchase_date">Purchase Date:</string>
+    <string name="order_details">Order Details</string>
+    <string name="checkout">Checkout</string>
+    <string name="print_order">Print Order</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails</string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="notification">Notification</string>
+    <string name="accountsecurity"><![CDATA[Account & Security]]></string>
+    <string name="language">Language</string>
+    <string name="support">Support Center</string>
+    <string name="community">Community Standards</string>
+    <string name="clause">Terms</string>
+    <string name="introduce">About</string>
+    <string name="logout">Logout</string>
+    <string name="notifiApp">App Notifications</string>
+    <string name="TBmail">Email Notifications</string>
+    <string name="pay">Payment</string>
+    <string name="product_image">Product Image</string>
+    <string name="ChangePass">Change Password</string>
+    <string name="profile">Profile</string>
+    <string name="notUpdate">Not Updated</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+    <string name="description">Description</string>
+    <string name="send">Send</string>
+    <string name="select_image">Select Image</string>
+    <string name="delAcc">Delete Account</string>
+    <string name="forgotPass">Forgot Password?</string>
+    <string name="rememberMe">Remember Me</string>
+    <string name="search">Search...</string>
+    <string name="newProducts">New Products</string>
+    <string name="ListPC">Computer Product List</string>
+    <string name="detail">Details</string>
+    <string name="cart">Cart</string>
+    <string name="StatisticReport">Statistics Report</string>
+    <string name="date">Date</string>
+    <string name="revenue">Revenue</string>
+    <string name="nameProduct">Name</string>
+    <string name="codeProduct">Product Code</string>
+    <string name="price">Price</string>
+    <string name="quantity">Quantity</string>
+    <string name="supplier">Supplier</string>
+    <string name="codeOrder">Order Code</string>
+    <string name="nameCustomer">Customer Name</string>
+    <string name="dateOrder">Order Date</string>
+    <string name="status">Status</string>
+    <string name="Back">Back</string>
+    <string name="Username">Username</string>
+    <string name="Address">Address</string>
+    <string name="Email">Email</string>
+    <string name="Role">Role</string>
+    <string name="PhoneNumber">Phone Number</string>
+    <string name="UID">UID</string>
+    <string name="Edit">Edit</string>
+    <string name="Delete">Delete</string>
+    <string name="CustomerName">Customer Name</string>
+    <string name="OrderDate">Order Date:</string>
+    <string name="TotalAmount">Total Amount:</string>
+    <string name="AddOrder">Add Order</string>
+    <string name="SupplierCode">Supplier Code</string>
+    <string name="SupplierName">Supplier Name</string>
+    <string name="AddSupplier">Add Supplier</string>
+    <string name="AddProducts">Add Products</string>
+    <string name="AddNewProducts">Add New Products</string>
+    <string name="ProductName">Product Name</string>
+    <string name="ProductCode">Product Code</string>
+    <string name="ProductPrice">Product Price</string>
+    <string name="ProductImageURL">Product Image URL</string>
+    <string name="QuantityInStock">Quantity in Stock</string>
+    <string name="ProductDescription">Product Description</string>
+    <string name="Supplier">Supplier</string>
+    <string name="AddAccount">Add Account</string>
+    <string name="AddNewAccount">Add New Account</string>
+    <string name="AccountName">Account Name</string>
+    <string name="OrderCode">Order Code</string>
+    <string name="OrderName">Customer Name</string>
+    <string name="Update">Update</string>
+    <string name="SearchForOrders">Search for orders...</string>
+    <string name="SearchForSuppliers">Search for suppliers...</string>
+    <string name="SupplierAddress">Supplier Address</string>
+    <string name="SupplierEmail">Supplier Email</string>
+    <string name="ProductSearch">Search for products...</string>
+    <string name="AccountSearch">Search for accounts...</string>
+    <string name="Order">Order</string>
+    <string name="Buy">Buy</string>
+    <string name="CurrentPassword">Current Password</string>
+    <string name="EnterCurrentPasswor">Enter Current Password</string>
+    <string name="NewPassword">New Password</string>
+    <string name="EnterNewPassword">Enter New Password</string>
+    <string name="ConfirmNewPassword">Confirm New Password</string>
+    <string name="ChangePassword">Change Password</string>
+    <string name="VI">VI</string>
+    <string name="EN">VN</string>
+    <string name="Admin">Admin</string>
+    <string name="AccountManagement">Account Management</string>
+    <string name="SupplierManagement">Supplier Management</string>
+    <string name="ProductManagement">Product Management</string>
+    <string name="OrderManagement">Order Management</string>
+    <string name="ReportStatistics">Report Statistics</string>
+    <string name="LogOut">Logout</string>
+    <string name="ProductList">Product List:</string>
+    <string name="Describe">Description</string>
+    <string name="InventoryQuantity">Inventory Quantity</string>
+    <string name="ProductType">Product Type</string>
+    <string name="AddToCart">Add to Cart</string>
+    <string name="BuyNow">Buy Now</string>
+    <string name="Client">Customer:</string>
+    <string name="ProductDetail">Product Details</string>
+    <string name="Name">Name:</string>
+    <string name="Decrease">-</string>
+    <string name="Increase">+</string>
+    <string name="ListOfLaptopProducts">Laptop Product List</string>
+    <string name="ListOfPhoneProducts">Phone Product List</string>
+    <string name="Price">Price:</string>
+    <string name="Quantity">Quantity:</string>
+    <string name="CommunityStandards">Community Standards</string>
+    <string name="AgreeToTheTerms">I agree to the terms</string>
+    <string name="Continue">Continue</string>
+    <string name="Revenue_statistics">Revenue statistics</string>
+
+    <string-array name="role_options">
+        <item>user</item>
+        <item>admin</item>
+    </string-array>
+    <!-- Product type options -->
+    <string-array name="product_type_options">
+        <item>Phone</item>
+        <item>Laptop</item>
+        <item>Computer</item>
+    </string-array>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="fgPass">Forgot Password</string>
+    <string name="lang_en">English</string>
+    <string name="lang_vn">Vietnamese</string>
+</resources>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="8dp"
+    android:elevation="6dp"
+    app:cardCornerRadius="12dp"
+    app:cardBackgroundColor="#E8DFDF"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <!-- Mã đơn hàng -->
+        <TextView
+            android:id="@+id/tv_order_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/OrderCode"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:paddingBottom="8dp" />
+
+        <!-- Tên khách hàng -->
+        <TextView
+            android:id="@+id/tv_customer_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Client"
+            android:textSize="16sp"
+            android:textColor="@color/gray"
+            android:paddingBottom="6dp" />
+
+        <!-- Tổng tiền -->
+        <TextView
+            android:id="@+id/tv_order_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/TotalAmount"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:paddingBottom="4dp" />
+
+        <!-- Ngày đặt hàng -->
+        <TextView
+            android:id="@+id/tv_order_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/OrderDate"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:paddingBottom="4dp" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

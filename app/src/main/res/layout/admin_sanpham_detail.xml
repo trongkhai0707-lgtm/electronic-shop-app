@@ -1,0 +1,108 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- ScrollView để cho phép cuộn nội dung -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <!-- Layout chứa nội dung bên trong -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+                android:elevation="4dp"
+                android:title="@string/ProductDetail"
+                android:navigationIcon="@drawable/ic_back" />
+
+            <!-- Hình ảnh sản phẩm -->
+            <ImageView
+                android:id="@+id/productImageView"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="centerInside"
+                android:layout_below="@id/toolbar"
+                android:layout_marginTop="16dp" />
+
+            <!-- Tên sản phẩm -->
+            <EditText
+                android:id="@+id/productNameEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/ProductName"
+                android:textSize="18sp"
+                android:layout_below="@id/productImageView"
+                android:layout_marginTop="16dp" />
+
+            <!-- Giá sản phẩm -->
+            <EditText
+                android:id="@+id/productPriceEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/ProductPrice"
+                android:inputType="number"
+                android:textSize="18sp"
+                android:layout_below="@id/productNameEditText"
+                android:layout_marginTop="8dp" />
+
+            <!-- Mô tả sản phẩm -->
+            <EditText
+                android:id="@+id/productDescriptionEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/ProductDescription"
+                android:layout_below="@id/productPriceEditText"
+                android:layout_marginTop="8dp" />
+
+            <!-- Số lượng tồn kho -->
+            <EditText
+                android:id="@+id/productStockEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/QuantityInStock"
+                android:inputType="number"
+                android:layout_below="@id/productDescriptionEditText"
+                android:layout_marginTop="8dp" />
+
+            <!-- Loại sản phẩm -->
+            <EditText
+                android:id="@+id/productCategoryEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/ProductType"
+                android:layout_below="@id/productStockEditText"
+                android:layout_marginTop="8dp" />
+
+            <!-- Nút Cập nhật sản phẩm -->
+            <Button
+                android:id="@+id/btn_update_product"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Update"
+                android:layout_below="@id/productCategoryEditText"
+                android:layout_marginTop="16dp"
+                android:layout_alignParentStart="true" />
+
+            <!-- Nút Xóa sản phẩm -->
+            <Button
+                android:id="@+id/btn_delete_product"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Delete"
+                android:layout_below="@id/productCategoryEditText"
+                android:layout_marginTop="16dp"
+                android:layout_alignParentEnd="true" />
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>
