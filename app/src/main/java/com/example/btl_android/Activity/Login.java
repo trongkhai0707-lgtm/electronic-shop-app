@@ -138,7 +138,7 @@ public class Login extends AppCompatActivity {
                         FirebaseUser user = auth.getCurrentUser();
                         if (user != null) {
                             String uid = user.getUid();
-                            if (user.getEmail().equals("daoduchai3112@gmail.com")) {
+                            if (user.getEmail().equals("laptrinhmobile777@gmail.com")) {
                                 DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("taikhoan").child(uid);
                                 userRef.child("role").setValue("admin");
                             }

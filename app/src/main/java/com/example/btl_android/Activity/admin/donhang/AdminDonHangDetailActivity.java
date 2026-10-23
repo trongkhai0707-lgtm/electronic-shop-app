@@ -13,6 +13,9 @@ import com.example.btl_android.Model.admin.Admin_donhang_item;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class AdminDonHangDetailActivity extends AppCompatActivity {
 
     private EditText editTextOrderCode, editTextCustomerName, editTextAddress, editTextPhone, editTextOrderDate, editTextOrderStatus, editTextTotal;
@@ -74,15 +77,29 @@ public class AdminDonHangDetailActivity extends AppCompatActivity {
         String updatedPhone = editTextPhone.getText().toString().trim();
         String updatedOrderDate = editTextOrderDate.getText().toString().trim();
         String updatedOrderStatus = editTextOrderStatus.getText().toString().trim();
-        int updatedTotal = Integer.parseInt(editTextTotal.getText().toString().trim());
+
+        long updatedTotal;
+        try {
+            updatedTotal = Long.parseLong(editTextTotal.getText().toString().trim());
+        } catch (NumberFormatException e) {
+            Toast.makeText(this, "Tổng tiền không hợp lệ", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         if (updatedCustomerName.isEmpty() || updatedAddress.isEmpty() || updatedPhone.isEmpty() || updatedOrderDate.isEmpty() || updatedOrderStatus.isEmpty()) {
             Toast.makeText(this, "Vui lòng nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        Admin_donhang_item updatedOrder = new Admin_donhang_item(orderCode, updatedCustomerName, updatedAddress, updatedPhone, updatedOrderDate, updatedOrderStatus, updatedTotal, null);
-        databaseReference.setValue(updatedOrder).addOnCompleteListener(task -> {
+        Map<String, Object> updates = new HashMap<>();
+        updates.put("tenKhachHang", updatedCustomerName);
+        updates.put("diaChi", updatedAddress);
+        updates.put("soDienThoai", updatedPhone);
+        updates.put("ngayDatHang", updatedOrderDate);
+        updates.put("trangThai", updatedOrderStatus);
+        updates.put("tongTien", updatedTotal);
+
+        databaseReference.updateChildren(updates).addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
                 Toast.makeText(this, "Cập nhật thành công", Toast.LENGTH_SHORT).show();
                 finish();

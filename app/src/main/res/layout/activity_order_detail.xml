@@ -1,75 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:fillViewport="true">
 
-    <!-- Header với nút back và tiêu đề đơn hàng -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="vertical"
+        android:padding="16dp">
 
-        <!-- Nút back -->
-        <ImageView
-            android:id="@+id/ivBack"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginEnd="16dp"
-            android:src="@drawable/ic_arrowback"
-            android:contentDescription="@string/back" />
-
-        <!-- Tiêu đề đơn hàng -->
-        <TextView
-            android:layout_width="0dp"
+        <!-- Header với nút back và tiêu đề đơn hàng -->
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/order_details"
-            android:textSize="24sp"
-            android:textStyle="bold" />
+            android:orientation="horizontal">
+
+            <!-- Nút back -->
+            <ImageView
+                android:id="@+id/ivBack"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="16dp"
+                android:src="@drawable/ic_arrowback"
+                android:contentDescription="@string/back" />
+
+            <!-- Tiêu đề đơn hàng -->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/order_details"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Mã đơn hàng -->
+        <TextView
+            android:id="@+id/tv_order_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:text="@string/order" />
+
+        <!-- Ngày đặt hàng -->
+        <TextView
+            android:id="@+id/tv_order_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textSize="16sp"
+            android:text="@string/dateOrder" />
+
+        <!-- Tổng tiền -->
+        <TextView
+            android:id="@+id/tv_total_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textSize="16sp"
+            android:text="@string/TotalAmount" />
+
+        <!-- Trạng thái đơn hàng -->
+        <TextView
+            android:id="@+id/tv_order_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textSize="16sp"
+            android:text="@string/status" />
+
+        <!-- Danh sách sản phẩm trong đơn hàng -->
+        <TextView
+            android:id="@+id/tv_order_items"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textSize="16sp"
+            android:text="@string/ProductList" />
+
     </LinearLayout>
-
-    <!-- Mã đơn hàng -->
-    <TextView
-        android:id="@+id/tv_order_number"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:text="@string/order" />
-
-    <!-- Ngày đặt hàng -->
-    <TextView
-        android:id="@+id/tv_order_date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:text="@string/dateOrder" />
-
-    <!-- Tổng tiền -->
-    <TextView
-        android:id="@+id/tv_total_amount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:text="@string/TotalAmount" />
-
-    <!-- Trạng thái đơn hàng -->
-    <TextView
-        android:id="@+id/tv_order_status"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:text="@string/status" />
-
-    <!-- Danh sách sản phẩm trong đơn hàng -->
-    <TextView
-        android:id="@+id/tv_order_items"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:text="@string/ProductList" />
-</LinearLayout>
+</ScrollView>

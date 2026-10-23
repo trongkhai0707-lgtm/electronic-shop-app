@@ -36,11 +36,9 @@ android {
 dependencies {
 
     implementation libs.okhttp
-    implementation libs.okhttp
     implementation libs.gson
     implementation libs.core
     implementation libs.zxing.android.embedded
-    implementation libs.firebase.functions // Added Firebase Functions dependency
     implementation libs.appcompat
     implementation libs.material
     implementation libs.activity

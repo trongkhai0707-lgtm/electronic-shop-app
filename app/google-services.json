@@ -1,14 +1,14 @@
 {
   "project_info": {
-    "project_number": "697142953543",
-    "firebase_url": "https://app-banhang-d1613-default-rtdb.asia-southeast1.firebasedatabase.app",
-    "project_id": "app-banhang-d1613",
-    "storage_bucket": "app-banhang-d1613.appspot.com"
+    "project_number": "811151351804",
+    "firebase_url": "https://electronic-shop-app-37693-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "electronic-shop-app-37693",
+    "storage_bucket": "electronic-shop-app-37693.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:697142953543:android:8fb24b49104921f15e1362",
+        "mobilesdk_app_id": "1:811151351804:android:f72bdabeb15e15674bdc79",
         "android_client_info": {
           "package_name": "com.example.btl_android"
         }
@@ -16,7 +16,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCxkFXysyl61sfT_sXJMLYE2L0jv6P_V70"
+          "current_key": "AIzaSyDirBM1XB1U_Xqz3fpW2TKr_ggFt7w3ZSE"
         }
       ],
       "services": {

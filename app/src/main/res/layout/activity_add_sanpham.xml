@@ -1,235 +1,243 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true"
     android:background="@color/background_color"
     tools:context=".Activity.admin.sanpham.add_sanpham">
 
-    <!-- Toolbar -->
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="0dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/background_color"
-        android:title="@string/AddProducts"
-        android:titleTextColor="@android:color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:navigationIcon="@drawable/ic_back" />
+        android:paddingBottom="32dp">
 
-    <!-- Title -->
-    <TextView
-        android:id="@+id/textViewTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/AddNewProducts"
-        android:textColor="@color/primary_text_color"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar" />
-
-    <!-- Tên sản phẩm -->
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputProductName"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="16dp"
-        app:boxBackgroundMode="outline"
-        app:boxStrokeColor="@color/primary_color"
-        app:hintTextColor="@color/hint_color"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textViewTitle">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextProductName"
-            android:layout_width="match_parent"
+        <!-- Toolbar -->
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="@string/ProductName"
-            android:inputType="text"
-            android:padding="12dp"
-            android:textColor="@color/primary_text_color" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:background="@color/background_color"
+            android:title="@string/AddProducts"
+            android:titleTextColor="@android:color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navigationIcon="@drawable/ic_back" />
 
-    <!-- Mã sản phẩm -->
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputProductCode"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="16dp"
-        app:boxBackgroundMode="outline"
-        app:boxStrokeColor="@color/primary_color"
-        app:hintTextColor="@color/hint_color"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textInputProductName">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextProductCode"
-            android:layout_width="match_parent"
+        <!-- Title -->
+        <TextView
+            android:id="@+id/textViewTitle"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="@string/ProductCode"
-            android:inputType="text"
-            android:padding="12dp"
-            android:textColor="@color/primary_text_color" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginTop="16dp"
+            android:text="@string/AddNewProducts"
+            android:textColor="@color/primary_text_color"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar" />
 
-    <!-- Giá sản phẩm -->
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputProductPrice"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="16dp"
-        app:boxBackgroundMode="outline"
-        app:boxStrokeColor="@color/primary_color"
-        app:hintTextColor="@color/hint_color"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textInputProductCode">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextProductPrice"
-            android:layout_width="match_parent"
+        <!-- Tên sản phẩm -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputProductName"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="@string/ProductPrice"
-            android:inputType="number"
-            android:padding="12dp"
-            android:textColor="@color/primary_text_color" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeColor="@color/primary_color"
+            app:hintTextColor="@color/hint_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textViewTitle">
 
-    <!-- Ảnh sản phẩm (URL) -->
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputProductImageUrl"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="16dp"
-        app:boxBackgroundMode="outline"
-        app:boxStrokeColor="@color/primary_color"
-        app:hintTextColor="@color/hint_color"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textInputProductPrice">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextProductName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/ProductName"
+                android:inputType="text"
+                android:padding="12dp"
+                android:textColor="@color/primary_text_color" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextProductImageUrl"
-            android:layout_width="match_parent"
+        <!-- Mã sản phẩm -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputProductCode"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="@string/ProductImageURL"
-            android:inputType="textUri"
-            android:padding="12dp"
-            android:textColor="@color/primary_text_color" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeColor="@color/primary_color"
+            app:hintTextColor="@color/hint_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textInputProductName">
 
-    <!-- Số lượng tồn kho -->
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputProductStock"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="16dp"
-        app:boxBackgroundMode="outline"
-        app:boxStrokeColor="@color/primary_color"
-        app:hintTextColor="@color/hint_color"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textInputProductImageUrl">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextProductCode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/ProductCode"
+                android:inputType="text"
+                android:padding="12dp"
+                android:textColor="@color/primary_text_color" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextProductStock"
-            android:layout_width="match_parent"
+        <!-- Giá sản phẩm -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputProductPrice"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="@string/QuantityInStock"
-            android:inputType="number"
-            android:padding="12dp"
-            android:textColor="@color/primary_text_color" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeColor="@color/primary_color"
+            app:hintTextColor="@color/hint_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textInputProductCode">
 
-    <!-- Mô tả sản phẩm -->
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputProductDescription"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="16dp"
-        app:boxBackgroundMode="outline"
-        app:boxStrokeColor="@color/primary_color"
-        app:hintTextColor="@color/hint_color"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textInputProductStock">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextProductPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/ProductPrice"
+                android:inputType="number"
+                android:padding="12dp"
+                android:textColor="@color/primary_text_color" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextProductDescription"
-            android:layout_width="match_parent"
+        <!-- Ảnh sản phẩm (URL) -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputProductImageUrl"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="@string/ProductDescription"
-            android:inputType="textMultiLine"
-            android:padding="12dp"
-            android:textColor="@color/primary_text_color" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeColor="@color/primary_color"
+            app:hintTextColor="@color/hint_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textInputProductPrice">
 
-    <!-- Nhà cung cấp -->
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputProductSupplier"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="16dp"
-        app:boxBackgroundMode="outline"
-        app:boxStrokeColor="@color/primary_color"
-        app:hintTextColor="@color/hint_color"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textInputProductDescription">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextProductImageUrl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/ProductImageURL"
+                android:inputType="textUri"
+                android:padding="12dp"
+                android:textColor="@color/primary_text_color" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextProductSupplier"
-            android:layout_width="match_parent"
+        <!-- Số lượng tồn kho -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputProductStock"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="@string/Supplier"
-            android:inputType="text"
-            android:padding="12dp"
-            android:textColor="@color/primary_text_color" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeColor="@color/primary_color"
+            app:hintTextColor="@color/hint_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textInputProductImageUrl">
 
-    <!-- Loại sản phẩm -->
-    <Spinner
-        android:id="@+id/spinnerProductType"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="16dp"
-        android:entries="@array/product_type_options"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textInputProductSupplier" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextProductStock"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/QuantityInStock"
+                android:inputType="number"
+                android:padding="12dp"
+                android:textColor="@color/primary_text_color" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- Button thêm sản phẩm -->
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/buttonAddProduct"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginBottom="24dp"
-        android:backgroundTint="@color/black"
-        android:paddingVertical="12dp"
-        android:text="@string/AddProducts"
-        android:textColor="@android:color/white"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/spinnerProductType" />
+        <!-- Mô tả sản phẩm -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputProductDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeColor="@color/primary_color"
+            app:hintTextColor="@color/hint_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textInputProductStock">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextProductDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/ProductDescription"
+                android:inputType="textMultiLine"
+                android:padding="12dp"
+                android:textColor="@color/primary_text_color" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Nhà cung cấp -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputProductSupplier"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeColor="@color/primary_color"
+            app:hintTextColor="@color/hint_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textInputProductDescription">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextProductSupplier"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/Supplier"
+                android:inputType="text"
+                android:padding="12dp"
+                android:textColor="@color/primary_text_color" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Loại sản phẩm -->
+        <Spinner
+            android:id="@+id/spinnerProductType"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp"
+            android:entries="@array/product_type_options"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textInputProductSupplier" />
+
+        <!-- Button thêm sản phẩm -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonAddProduct"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
+            android:backgroundTint="@color/black"
+            android:paddingVertical="12dp"
+            android:text="@string/AddProducts"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/spinnerProductType" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
