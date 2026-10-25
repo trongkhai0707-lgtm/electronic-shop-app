@@ -5,7 +5,7 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -21,6 +21,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class HoTro extends AppCompatActivity {
 
@@ -69,11 +71,11 @@ public class HoTro extends AppCompatActivity {
                 return;
             }
 
-            // Gửi báo cáo
+            // Gửi báo cáo - Chỉ cần gọi hàm sendReport() đã viết ở bên dưới
             sendReport();
+
             Toast.makeText(HoTro.this, "Báo cáo đã được gửi", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(HoTro.this, String.class);
-            startActivity(intent);
+            finish(); // quay lại màn hình Cài đặt
         });
     }
 
