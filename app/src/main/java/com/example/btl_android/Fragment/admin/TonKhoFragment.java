@@ -60,7 +60,8 @@ public class TonKhoFragment extends Fragment {
                 for (DataSnapshot productSnapshot : snapshot.getChildren()) {
                     String maSanPham = productSnapshot.child("ma_san_pham").getValue(String.class);
                     String tenSanPham = productSnapshot.child("ten_san_pham").getValue(String.class);
-                    long giaSanPham = productSnapshot.child("gia").getValue(Long.class);
+                    Long giaRaw = productSnapshot.child("gia").getValue(Long.class);
+                    long giaSanPham = giaRaw != null ? giaRaw : 0L;
                     String soLuongTonKho = productSnapshot.child("so_luong_ton_kho").getValue(Long.class).toString();
                     String nhaCungCap = productSnapshot.child("nha_cung_cap").getValue(String.class);
 

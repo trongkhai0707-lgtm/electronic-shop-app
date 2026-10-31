@@ -43,6 +43,8 @@ public class DanhThuFragment extends Fragment {
     Button btnFrom, btnTo;
     Calendar fromDateCalendar, toDateCalendar;
     SimpleDateFormat dateFormat;
+    private DatabaseReference revenueRef;
+    private ValueEventListener revenueListener;
 
     public DanhThuFragment() {
         // Required empty public constructor
@@ -79,6 +81,15 @@ public class DanhThuFragment extends Fragment {
         btnTo.setOnClickListener(v -> showDatePicker(toDateCalendar, btnTo));
 
         return view;
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        // Gỡ listener để không chạy khi fragment đã bị hủy
+        if (revenueRef != null && revenueListener != null) {
+            revenueRef.removeEventListener(revenueListener);
+        }
     }
 
     // Hiển thị DatePicker để chọn ngày
@@ -119,20 +130,51 @@ public class DanhThuFragment extends Fragment {
 
     // Hàm lấy dữ liệu từ Firebase và lọc theo khoảng thời gian
     private void generateRevenueData(Date fromDate, Date toDate) {
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("don_hang");
-        databaseReference.addValueEventListener(new ValueEventListener() {
+        // Gỡ listener cũ trước khi gắn listener mới (tránh bị cộng dồn)
+        if (revenueRef != null && revenueListener != null) {
+            revenueRef.removeEventListener(revenueListener);
+        }
+
+        // Từ 00:00 của ngày bắt đầu đến 23:59:59 của ngày kết thúc
+        Calendar startCal = Calendar.getInstance();
+        startCal.setTime(fromDate);
+        startCal.set(Calendar.HOUR_OF_DAY, 0);
+        startCal.set(Calendar.MINUTE, 0);
+        startCal.set(Calendar.SECOND, 0);
+        startCal.set(Calendar.MILLISECOND, 0);
+        final Date rangeStart = startCal.getTime();
+
+        Calendar endCal = Calendar.getInstance();
+        endCal.setTime(toDate);
+        endCal.set(Calendar.HOUR_OF_DAY, 23);
+        endCal.set(Calendar.MINUTE, 59);
+        endCal.set(Calendar.SECOND, 59);
+        endCal.set(Calendar.MILLISECOND, 999);
+        final Date rangeEnd = endCal.getTime();
+
+        revenueRef = FirebaseDatabase.getInstance().getReference("don_hang");
+        revenueListener = new ValueEventListener() {
             @SuppressLint("SetTextI18n")
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                // Fragment không còn gắn vào màn hình thì bỏ qua
+                if (!isAdded() || getContext() == null) return;
+
                 List<RevenueEntry> revenueEntries = new ArrayList<>();
 
                 for (DataSnapshot donHangSnapshot : snapshot.getChildren()) {
+                    // Bỏ qua đơn đã hủy, không tính vào doanh thu
+                    String trangThai = donHangSnapshot.child("trangThai").getValue(String.class);
+                    if ("Đã hủy".equals(trangThai)) {
+                        continue;
+                    }
+
                     String ngayDatHangStr = donHangSnapshot.child("ngayDatHang").getValue(String.class);
                     Long tongTien = donHangSnapshot.child("tongTien").getValue(Long.class);
 
                     try {
                         Date ngayDatHang = dateFormat.parse(ngayDatHangStr);
-                        if (ngayDatHang != null && ngayDatHang.compareTo(fromDate) >= 0 && ngayDatHang.compareTo(toDate) <= 0) {
+                        if (ngayDatHang != null && ngayDatHang.compareTo(rangeStart) >= 0 && ngayDatHang.compareTo(rangeEnd) <= 0) {
                             if (tongTien != null) {
                                 revenueEntries.add(new RevenueEntry(ngayDatHang, tongTien));
                             }
@@ -140,7 +182,6 @@ public class DanhThuFragment extends Fragment {
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-
                 }
 
                 // Sắp xếp theo ngày
@@ -154,7 +195,8 @@ public class DanhThuFragment extends Fragment {
             public void onCancelled(@NonNull DatabaseError error) {
                 // Xử lý lỗi nếu có
             }
-        });
+        };
+        revenueRef.addValueEventListener(revenueListener);
     }
 
     // Cập nhật giao diện cho ScrollView và biểu đồ

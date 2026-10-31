@@ -115,7 +115,8 @@
         <activity android:name=".Activity.Settings.ChangePass" />
         <activity
             android:name=".Activity.Login"
-            android:exported="true">
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

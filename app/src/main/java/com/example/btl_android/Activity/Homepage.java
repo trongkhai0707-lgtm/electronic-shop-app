@@ -205,10 +205,12 @@ public class Homepage extends AppCompatActivity implements NavigationView.OnNavi
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     // Lấy dữ liệu sản phẩm từ Firebase
                     String tenSanPham = snapshot.child("ten_san_pham").getValue(String.class);
-                    Long gia = snapshot.child("gia").getValue(Long.class);
+                    Long giaRaw = snapshot.child("gia").getValue(Long.class);
+                    Long gia = giaRaw != null ? giaRaw : 0L;
                     String hinhAnh = snapshot.child("hinh_anh").getValue(String.class);
                     String moTa = snapshot.child("mo_ta").getValue(String.class);
-                    int soLuongTonKho = snapshot.child("so_luong_ton_kho").getValue(Integer.class);
+                    Integer tonKhoRaw = snapshot.child("so_luong_ton_kho").getValue(Integer.class);
+                    int soLuongTonKho = tonKhoRaw != null ? tonKhoRaw : 0;
                     String loai = snapshot.child("loai").getValue(String.class);
 
                     // Tạo đối tượng sản phẩm và set các thuộc tính

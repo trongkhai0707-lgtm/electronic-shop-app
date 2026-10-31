@@ -13,6 +13,10 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
+import android.graphics.Rect;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -55,6 +59,22 @@ public class Login extends AppCompatActivity {
         EdgeToEdge.enable(this);
         LanguageHelper.loadLocale(this);
         setContentView(R.layout.activity_login);
+
+        // Chừa chỗ cho thanh hệ thống và bàn phím (do đang dùng EdgeToEdge)
+        View loginScroll = findViewById(R.id.login_scroll);
+        ViewCompat.setOnApplyWindowInsetsListener(loginScroll, (v, insets) -> {
+            Insets bars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            Insets ime = insets.getInsets(WindowInsetsCompat.Type.ime());
+            v.setPadding(bars.left, bars.top, bars.right, Math.max(bars.bottom, ime.bottom));
+
+            // Cuộn ô đang nhập lên trên bàn phím
+            View focused = v.findFocus();
+            if (focused != null) {
+                focused.post(() -> focused.requestRectangleOnScreen(
+                        new Rect(0, 0, focused.getWidth(), focused.getHeight()), false));
+            }
+            return insets;
+        });
 
         auth = FirebaseAuth.getInstance();
 
@@ -142,7 +162,7 @@ public class Login extends AppCompatActivity {
                                 DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("taikhoan").child(uid);
                                 userRef.child("role").setValue("admin");
                             }
-                            saveLoginInfo(uid, inputEmail, inputPass);
+                            saveLoginInfo(uid, inputEmail);
                             checkUserRole(uid, user);
                         }
                     } else {
@@ -206,12 +226,16 @@ public class Login extends AppCompatActivity {
         });
     }
 
-    private void saveLoginInfo(String uid, String email, String password) {
+    private void saveLoginInfo(String uid, String email) {
         SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("uid", uid);
-        editor.putString("email", email);
-        editor.putString("password", password); // Mã hóa trước khi lưu nếu cần
+        if (sharedPreferences.getBoolean("remember", false)) {
+            editor.putString("email", email);
+        } else {
+            editor.remove("email");
+        }
+        editor.remove("password"); // dọn mật khẩu cũ còn sót từ bản trước
         editor.apply();
     }
 
@@ -282,7 +306,6 @@ public class Login extends AppCompatActivity {
 
         if (isRemembered) {
             mailEditText.setText(sharedPreferences.getString("email", ""));
-            passEditText.setText(sharedPreferences.getString("password", ""));
         }
     }
 

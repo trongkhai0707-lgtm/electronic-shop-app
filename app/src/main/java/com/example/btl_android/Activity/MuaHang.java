@@ -22,6 +22,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.database.MutableData;
+import com.google.firebase.database.Transaction;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -137,78 +139,200 @@ public class MuaHang extends AppCompatActivity {
 
     private void createOrder() {
         String uid = getSharedPreferences("MyPrefs", MODE_PRIVATE).getString("uid", null);
-        if (uid != null) {
-            String customerName = etCustomerName.getText().toString().trim();
-            String phoneNumber = etPhoneNumber.getText().toString().trim();
-            String address = etAddress.getText().toString().trim();
+        if (uid == null) return;
 
-            if (customerName.isEmpty()) {
-                Toast.makeText(MuaHang.this, "Tên khách hàng không được để trống.", Toast.LENGTH_SHORT).show();
-                etCustomerName.requestFocus();
-                return;
-            }
-            if (phoneNumber.isEmpty()) {
-                Toast.makeText(MuaHang.this, "Số điện thoại không được để trống.", Toast.LENGTH_SHORT).show();
-                etPhoneNumber.requestFocus();
-                return;
-            }
-            if (address.isEmpty()) {
-                Toast.makeText(MuaHang.this, "Địa chỉ không được để trống.", Toast.LENGTH_SHORT).show();
-                etAddress.requestFocus();
-                return;
-            }
+        String customerName = etCustomerName.getText().toString().trim();
+        String phoneNumber = etPhoneNumber.getText().toString().trim();
+        String address = etAddress.getText().toString().trim();
 
-            DatabaseReference ordersRef = FirebaseDatabase.getInstance().getReference("don_hang");
-            DatabaseReference cartRef = FirebaseDatabase.getInstance().getReference("cart").child(uid);
+        if (customerName.isEmpty()) {
+            Toast.makeText(MuaHang.this, "Tên khách hàng không được để trống.", Toast.LENGTH_SHORT).show();
+            etCustomerName.requestFocus();
+            return;
+        }
+        if (phoneNumber.isEmpty()) {
+            Toast.makeText(MuaHang.this, "Số điện thoại không được để trống.", Toast.LENGTH_SHORT).show();
+            etPhoneNumber.requestFocus();
+            return;
+        }
+        if (address.isEmpty()) {
+            Toast.makeText(MuaHang.this, "Địa chỉ không được để trống.", Toast.LENGTH_SHORT).show();
+            etAddress.requestFocus();
+            return;
+        }
+        if (cartItemList.isEmpty()) {
+            Toast.makeText(MuaHang.this, "Không có sản phẩm để đặt hàng.", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
-            // Tạo mã đơn hàng duy nhất
-            String orderId = ordersRef.push().getKey();
+        // Khóa nút để tránh bấm đặt hàng 2 lần
+        Btn_thanhtoan.setEnabled(false);
 
-            // Tạo dữ liệu đơn hàng
-            Map<String, Object> orderData = new HashMap<>();
-            orderData.put("maDonHang", orderId);
-            orderData.put("trangThai", "Đã đặt hàng");
-            orderData.put("ngayDatHang", new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(new Date()));
-            orderData.put("tongTien", totalAmount);
-            orderData.put("tenKhachHang", customerName);
-            orderData.put("soDienThoai", phoneNumber);
-            orderData.put("diaChi", address);
-            orderData.put("uid", uid); // Thêm uid vào đơn hàng
+        // Trừ kho trước, thành công hết mới ghi đơn
+        List<CartItem> itemsSnapshot = new ArrayList<>(cartItemList);
+        reserveStock(itemsSnapshot, 0, new ArrayList<>(),
+                deducted -> saveOrder(uid, customerName, phoneNumber, address, deducted));
+    }
 
-            // Thêm sản phẩm vào đơn hàng
-            List<Map<String, Object>> products = new ArrayList<>();
-            for (CartItem item : cartItemList) {
-                Map<String, Object> productData = new HashMap<>();
-                productData.put("tenSanPham", item.getName());
-                productData.put("gia", item.getPrice());
-                productData.put("soLuong", item.getQuantity());
-                products.add(productData);
-            }
-            orderData.put("sanPham", products);
+    // Một lần trừ kho đã thực hiện, dùng để hoàn lại khi cần
+    private static class StockDeduction {
+        final DatabaseReference ref;
+        final long qty;
 
-            if (orderId != null) {
-                ordersRef.child(orderId).setValue(orderData).addOnCompleteListener(task -> {
-                    if (task.isSuccessful()) {
-                        // Xóa giỏ hàng sau khi đặt hàng thành công
-                        cartRef.removeValue().addOnCompleteListener(cartTask -> {
-                            if (cartTask.isSuccessful()) {
-                                Toast.makeText(MuaHang.this, "Đặt hàng thành công!", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(MuaHang.this, Homepage.class);
-                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                                startActivity(intent);
-                                finish();
-                            } else {
-                                Toast.makeText(MuaHang.this, "Xóa giỏ hàng thất bại, vui lòng thử lại.", Toast.LENGTH_SHORT).show();
-                            }
-                        });
-                    } else {
-                        Toast.makeText(MuaHang.this, "Đặt hàng thất bại, vui lòng thử lại.", Toast.LENGTH_SHORT).show();
-                    }
-                });
-            }
+        StockDeduction(DatabaseReference ref, long qty) {
+            this.ref = ref;
+            this.qty = qty;
         }
     }
 
+    private interface OnStockReserved {
+        void onSuccess(List<StockDeduction> deducted);
+    }
+
+    // Trừ kho lần lượt từng sản phẩm (đệ quy theo index)
+    private void reserveStock(List<CartItem> items, int index,
+                              List<StockDeduction> done, OnStockReserved callback) {
+        if (index >= items.size()) {
+            callback.onSuccess(done);
+            return;
+        }
+
+        CartItem item = items.get(index);
+        String name = item.getName();
+        long qty = item.getQuantity();
+
+        FirebaseDatabase.getInstance().getReference("san_pham")
+                .orderByChild("ten_san_pham").equalTo(name)
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (!snapshot.exists()) {
+                            failOrder(done, "Sản phẩm \"" + name + "\" không còn tồn tại.");
+                            return;
+                        }
+                        DataSnapshot productSnap = snapshot.getChildren().iterator().next();
+                        if (!productSnap.hasChild("so_luong_ton_kho")) {
+                            failOrder(done, "Sản phẩm \"" + name + "\" chưa có thông tin tồn kho.");
+                            return;
+                        }
+
+                        DatabaseReference stockRef = productSnap.getRef().child("so_luong_ton_kho");
+                        stockRef.runTransaction(new Transaction.Handler() {
+                            @NonNull
+                            @Override
+                            public Transaction.Result doTransaction(@NonNull MutableData currentData) {
+                                Long stock = currentData.getValue(Long.class);
+                                if (stock == null) {
+                                    // Chưa có dữ liệu cục bộ: trả về để Firebase chạy lại với giá trị thật
+                                    return Transaction.success(currentData);
+                                }
+                                if (stock < qty) {
+                                    return Transaction.abort(); // không đủ hàng
+                                }
+                                currentData.setValue(stock - qty);
+                                return Transaction.success(currentData);
+                            }
+
+                            @Override
+                            public void onComplete(DatabaseError error, boolean committed,
+                                                   DataSnapshot currentData) {
+                                if (error != null) {
+                                    failOrder(done, "Lỗi kết nối, vui lòng thử lại.");
+                                } else if (!committed) {
+                                    failOrder(done, "Sản phẩm \"" + name + "\" không đủ hàng.");
+                                } else {
+                                    done.add(new StockDeduction(stockRef, qty));
+                                    reserveStock(items, index + 1, done, callback);
+                                }
+                            }
+                        });
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        failOrder(done, "Lỗi kết nối, vui lòng thử lại.");
+                    }
+                });
+    }
+
+    // Hoàn lại kho đã trừ, mở lại nút và báo lỗi
+    private void failOrder(List<StockDeduction> done, String message) {
+        rollbackStock(done);
+        Btn_thanhtoan.setEnabled(true);
+        Toast.makeText(MuaHang.this, message, Toast.LENGTH_LONG).show();
+    }
+
+    private void rollbackStock(List<StockDeduction> done) {
+        for (StockDeduction d : done) {
+            d.ref.runTransaction(new Transaction.Handler() {
+                @NonNull
+                @Override
+                public Transaction.Result doTransaction(@NonNull MutableData currentData) {
+                    Long stock = currentData.getValue(Long.class);
+                    if (stock == null) {
+                        return Transaction.success(currentData);
+                    }
+                    currentData.setValue(stock + d.qty);
+                    return Transaction.success(currentData);
+                }
+
+                @Override
+                public void onComplete(DatabaseError error, boolean committed, DataSnapshot currentData) {
+                }
+            });
+        }
+    }
+
+    // Ghi đơn hàng (code cũ của bạn, chỉ thêm hoàn kho khi ghi đơn thất bại)
+    private void saveOrder(String uid, String customerName, String phoneNumber,
+                           String address, List<StockDeduction> deducted) {
+        DatabaseReference ordersRef = FirebaseDatabase.getInstance().getReference("don_hang");
+        DatabaseReference cartRef = FirebaseDatabase.getInstance().getReference("cart").child(uid);
+
+        String orderId = ordersRef.push().getKey();
+        if (orderId == null) {
+            failOrder(deducted, "Không tạo được mã đơn hàng, vui lòng thử lại.");
+            return;
+        }
+
+        Map<String, Object> orderData = new HashMap<>();
+        orderData.put("maDonHang", orderId);
+        orderData.put("trangThai", "Đã đặt hàng");
+        orderData.put("ngayDatHang", new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(new Date()));
+        orderData.put("tongTien", totalAmount);
+        orderData.put("tenKhachHang", customerName);
+        orderData.put("soDienThoai", phoneNumber);
+        orderData.put("diaChi", address);
+        orderData.put("uid", uid);
+
+        List<Map<String, Object>> products = new ArrayList<>();
+        for (CartItem item : cartItemList) {
+            Map<String, Object> productData = new HashMap<>();
+            productData.put("tenSanPham", item.getName());
+            productData.put("gia", item.getPrice());
+            productData.put("soLuong", item.getQuantity());
+            products.add(productData);
+        }
+        orderData.put("sanPham", products);
+
+        ordersRef.child(orderId).setValue(orderData).addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                cartRef.removeValue().addOnCompleteListener(cartTask -> {
+                    if (cartTask.isSuccessful()) {
+                        Toast.makeText(MuaHang.this, "Đặt hàng thành công!", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(MuaHang.this, Homepage.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(intent);
+                        finish();
+                    } else {
+                        Toast.makeText(MuaHang.this, "Xóa giỏ hàng thất bại, vui lòng thử lại.", Toast.LENGTH_SHORT).show();
+                    }
+                });
+            } else {
+                failOrder(deducted, "Đặt hàng thất bại, vui lòng thử lại.");
+            }
+        });
+    }
 
     @SuppressLint("SetTextI18n")
     private void loadOrderDate() {

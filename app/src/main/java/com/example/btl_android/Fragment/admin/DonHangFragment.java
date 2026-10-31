@@ -26,6 +26,7 @@ public class DonHangFragment extends Fragment {
 
     TableLayout tableLayout;
     DatabaseReference databaseReference;
+    private ValueEventListener orderListener;
 
     public DonHangFragment() {
         // Required empty public constructor
@@ -47,30 +48,45 @@ public class DonHangFragment extends Fragment {
         // Khởi tạo tham chiếu Firebase
         databaseReference = FirebaseDatabase.getInstance().getReference("don_hang");
 
-        // Lấy dữ liệu sản phẩm từ Firebase
+        // Lấy dữ liệu đơn hàng từ Firebase
         fetchOrderData();
 
         return view;
     }
 
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        // Gỡ listener để không chạy khi fragment đã bị hủy
+        if (databaseReference != null && orderListener != null) {
+            databaseReference.removeEventListener(orderListener);
+        }
+    }
+
     private void fetchOrderData() {
-        databaseReference.addValueEventListener(new ValueEventListener() {
+        orderListener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                // Fragment không còn gắn vào màn hình thì bỏ qua
+                if (!isAdded() || getContext() == null) return;
+
                 // Xóa bảng trước khi thêm hàng mới
                 tableLayout.removeViews(1, tableLayout.getChildCount() - 1);
 
                 for (DataSnapshot productSnapshot : snapshot.getChildren()) {
                     String maSanPham = productSnapshot.child("maDonHang").getValue(String.class);
                     String ngayDatHang = productSnapshot.child("ngayDatHang").getValue(String.class);
-                    long tongTien = productSnapshot.child("tongTien").getValue(Long.class);
                     String tenKhachHang = productSnapshot.child("tenKhachHang").getValue(String.class);
                     String trangThai = productSnapshot.child("trangThai").getValue(String.class);
+
+                    // Đọc tổng tiền an toàn: thiếu hoặc sai kiểu thì coi là 0
+                    Object tongTienObj = productSnapshot.child("tongTien").getValue();
+                    long tongTien = tongTienObj instanceof Number ? ((Number) tongTienObj).longValue() : 0;
 
                     // Xử lý giá tiền
                     String gia = new DecimalFormat("#,###").format(tongTien) + " VNĐ";
 
-                    // Tạo hàng mới cho mỗi sản phẩm
+                    // Tạo hàng mới cho mỗi đơn hàng
                     TableRow row = new TableRow(getContext());
 
                     // Thêm cột vào hàng
@@ -89,7 +105,8 @@ public class DonHangFragment extends Fragment {
             public void onCancelled(@NonNull DatabaseError error) {
                 // Xử lý lỗi nếu có
             }
-        });
+        };
+        databaseReference.addValueEventListener(orderListener);
     }
 
     private void addCellToRow(TableRow row, String text, int weight) {
