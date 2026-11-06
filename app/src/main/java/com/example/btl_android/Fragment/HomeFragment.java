@@ -77,33 +77,17 @@ public class HomeFragment extends Fragment {
     }
 
     private void ActionViewFlipper() {
-        imageAdvertise = new ArrayList<>();
-        storageRef.listAll()
-                .addOnSuccessListener(listResult -> {
-                    for (StorageReference item : listResult.getItems()) {
-                        // Lấy URL của mỗi ảnh
-                        item.getDownloadUrl().addOnSuccessListener(uri -> {
-                            String imageUrl = uri.toString();
-                            imageAdvertise.add(imageUrl);
-
-                            if (isAdded()) { // Kiểm tra Fragment còn gắn với Context
-                                ImageView imageView = new ImageView(requireContext());
-                                Picasso.get().load(imageUrl).into(imageView);
-                                // Thay đổi scaleType để tránh méo ảnh
-                                imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
-                                viewFlipper.addView(imageView);
-                            }
-                        });
-                    }
-                });
-        if (isAdded()) { // Kiểm tra trước khi thiết lập animation
-            viewFlipper.setFlipInterval(5000);
-            viewFlipper.setAutoStart(true);
-            Animation animationIn = AnimationUtils.loadAnimation(requireContext(), R.anim.slide_in_right);
-            Animation animationOut = AnimationUtils.loadAnimation(requireContext(), R.anim.slide_out_right);
-            viewFlipper.setInAnimation(animationIn);
-            viewFlipper.setOutAnimation(animationOut);
+        int[] banners = {R.drawable.banner_1, R.drawable.banner_2, R.drawable.banner_3};
+        for (int res : banners) {
+            ImageView imageView = new ImageView(requireContext());
+            imageView.setImageResource(res);
+            imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
+            viewFlipper.addView(imageView);
         }
+        viewFlipper.setFlipInterval(5000);
+        viewFlipper.setAutoStart(true);
+        viewFlipper.setInAnimation(requireContext(), R.anim.slide_in_right);
+        viewFlipper.setOutAnimation(requireContext(), R.anim.slide_out_right);
     }
 
     private void NewProduct() {
@@ -115,14 +99,18 @@ public class HomeFragment extends Fragment {
                 mangSanPham.clear();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     String ten = snapshot.child("ten_san_pham").getValue(String.class);
-                    Integer gia = snapshot.child("gia").getValue(Integer.class);
+                    Long giaRaw = snapshot.child("gia").getValue(Long.class);
                     String anh = snapshot.child("hinh_anh").getValue(String.class);
                     String loai = snapshot.child("loai").getValue(String.class);
-                    Integer soLuong = snapshot.child("so_luong_ton_kho").getValue(Integer.class);
+                    Long soLuongRaw = snapshot.child("so_luong_ton_kho").getValue(Long.class);
                     String moTa = snapshot.child("mo_ta").getValue(String.class);
+
+                    int gia = giaRaw != null ? giaRaw.intValue() : 0;
+                    int soLuong = soLuongRaw != null ? soLuongRaw.intValue() : 0;
+
                     mangSanPham.add(new SanPham(ten, gia, anh, loai, soLuong, moTa));
-                    adapter.notifyDataSetChanged();
                 }
+                adapter.notifyDataSetChanged();
             }
 
             @Override

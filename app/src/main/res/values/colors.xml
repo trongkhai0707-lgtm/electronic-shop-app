@@ -26,11 +26,11 @@
     <color name="gray">#FF808080</color>
     <color name="background_color">#F0F0F0</color>
     <color name="text_color">#333333</color>
-    <color name="primary_color">#FF5722</color>
-    <color name="button_pressed_color">#E64A19</color>
-    <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#3700B3</color>
-    <color name="colorAccent">#03DAC5</color>
+    <color name="primary_color">#1565C0</color>
+    <color name="button_pressed_color">#0D47A1</color>
+    <color name="colorPrimary">#1565C0</color>
+    <color name="colorPrimaryDark">#0D47A1</color>
+    <color name="colorAccent">#FFB300</color>
 
     <!-- Màu chính cho văn bản -->
     <color name="primary_text_color">#212121</color>

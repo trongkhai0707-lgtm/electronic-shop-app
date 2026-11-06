@@ -3,7 +3,7 @@
     android:id="@+id/homepage_header"
     android:layout_width="match_parent"
     android:layout_height="200dp"
-    android:background="@color/colorAccent"
+    android:background="@color/colorPrimary"
     android:gravity="bottom"
 
     android:orientation="vertical"
@@ -13,7 +13,7 @@
         android:id="@+id/avatar"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:src="@drawable/ic_launcher_foreground" />
+        android:src="@mipmap/logo_round" />
 
     <TextView
         android:id="@+id/txt_name"

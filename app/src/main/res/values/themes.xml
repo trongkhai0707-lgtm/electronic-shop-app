@@ -3,6 +3,12 @@
     <style name="Base.Theme.BTL_Android" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">#1565C0</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="colorPrimaryContainer">#D6E4FF</item>
+        <item name="colorOnPrimaryContainer">#0D47A1</item>
+        <item name="colorSecondary">#FFB300</item>
+        <item name="colorOnSecondary">#1A1A1A</item>
         <item name="android:statusBarColor">#00000000</item>
     </style>
 
